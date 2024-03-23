@@ -1,0 +1,63 @@
+<style>
+  .navbar-nav .nav-link {
+    transition: color 0.3s ease;
+  }
+  .navbar-nav .nav-link:hover {
+    color: purple; 
+  }
+  .navbar-nav .nav-link.active {
+    color: green; 
+    font-weight: bold; 
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'App:index' %}"><b>¸¸♬·¯♪·¯♫¸¸ 𝓑 𝓜𝓾𝓼𝓲𝓬¸¸♫</b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="{% url 'App:index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/playlist/' %}active{% endif %}" href="{% url 'App:playlist' %}">Playlist</a>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/aboutus/' %}active{% endif %}" href="{% url 'App:aboutus' %}">AboutUs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/aboutus/' %}active{% endif %}" href="{% url 'App:contact' %}">Contact</a>
+        </li>
+        <div class="from-check form-switch mx-4">
+          <input 
+            class="form-check-input p-2"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchCheckChecked"
+            checked
+            onclick="myFunction()"
+          >
+
+        </div>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <!-- Logout link added here -->
+      <a href="#" class="btn btn-primary">Logout</a>
+    </div>
+
+  </div>
+  <script>
+    function myFunction(){
+      var element = document.body;
+      element.dataset.bsTheme = element.dataset.bsTheme == "light" ? "dark" : "light";
+    }
+  </script>
+
+</nav>
